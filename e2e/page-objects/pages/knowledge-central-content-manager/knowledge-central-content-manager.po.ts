@@ -214,4 +214,12 @@ export class KnowledgeCentralContentManagerPage {
     static get markPublic() {
         return $(By.css(`table#${this.names.publicCheckBox} tbody tr td input[type="${this.names.publicCheckBox}"]`), this.names.publicCheckBox);
     }
+
+    static get englishName() {
+        return $(by.cssContainingText(this.tags.label, this.names.englishName), this.names.englishName);
+    }
+
+    static get mandatorySymbol() {
+        return $(by.cssContainingText('nobr', this.names.mandatorySymbol), this.names.mandatorySymbol);
+    }
 }

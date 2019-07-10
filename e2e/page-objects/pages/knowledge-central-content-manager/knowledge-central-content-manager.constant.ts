@@ -48,5 +48,7 @@ export class KnowledgeCentralContentManagerConstant {
         processing: 'Deleting Documents"Processing 1 of 1Deleting Documents is Complete',
         accessLevels: 'Access Levels',
         publicCheckBox: 'public',
+        englishName: 'English Name',
+        mandatorySymbol: '*',
     });
 }

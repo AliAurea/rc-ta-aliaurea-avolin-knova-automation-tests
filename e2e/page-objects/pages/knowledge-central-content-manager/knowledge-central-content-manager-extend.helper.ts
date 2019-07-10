@@ -5,6 +5,8 @@ import { PageHelper } from '../../../components/html/page-helper';
 import { ExpectationHelper } from '../../../components/misc-utils/expectation-helper';
 import { CommonPage } from '../common/common.po';
 import { EmailTemplateBuilderPage } from '../email-template-builder-page/email-template-builder.po';
+import { KnowledgeCentralCollaborationPage } from '../knowledge-central-collaboration/knowledge-central-collaboration.po';
+import { AgentMicrositePage } from '../manage-site-experience/agent-microsite/agent-microsite.po';
 
 import { KnowledgeCentralContentManagerPage } from './knowledge-central-content-manager.po';
 
@@ -132,5 +134,19 @@ export class KnowledgeCentralContentManagerPageHelperExtend {
     static async verifySavedViewDisplayed(view: string) {
         StepLogger.subVerification('verify saved Displayed');
         await KnowledgeCentralContentManagerPage.getSavedView(view).verifyDisplayedStatus();
+    }
+
+    static async verifyEnglishNameDisplayedAsMandatory() {
+        StepLogger.subVerification('verify english name  Displayed');
+        await KnowledgeCentralContentManagerPage.englishName.verifyDisplayedStatus();
+        StepLogger.subVerification('verify Mandatory symbol  Displayed');
+        await KnowledgeCentralContentManagerPage.mandatorySymbol.verifyDisplayedStatus();
+    }
+
+    static async errorMessageDisplayedWithOk() {
+        StepLogger.subVerification('error displayed for blank field');
+        await AgentMicrositePage.recommendationManagerForm.propertyLeftBlankMessage.verifyDisplayedStatus();
+        StepLogger.subVerification('ok button displayed');
+        await KnowledgeCentralCollaborationPage.okOnErrorPopup.verifyDisplayedStatus();
     }
 }
